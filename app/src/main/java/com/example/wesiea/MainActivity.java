@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 break;
             case R.id.nav_contact_us :
-                System.out.println("dddddddddddddddddddddddddddddddddddddddd");
+
                 break;
             case R.id.nav_log_in :
                 startActivity(login);
