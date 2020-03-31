@@ -23,13 +23,13 @@ public class HomeFragmentOffline extends Fragment {
         homeViewModel =
                 ViewModelProviders.of(this).get(HomeViewModelOffline.class);
         View root = inflater.inflate(R.layout.fragment_home_offline, container, false);
-        final TextView textView = root.findViewById(R.id.text_home);
+       /* final TextView textView = root.findViewById(R.id.text_home);
         homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
             }
-        });
+        });*/
         return root;
     }
 }

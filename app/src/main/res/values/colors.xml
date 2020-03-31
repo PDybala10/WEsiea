@@ -19,4 +19,5 @@
 <!--color utiliser pour le pdf-->
 <color name="colorPdfGray">#BEBDBD</color>
 <color name="colorPdfBlue">#006DB3</color>
+    <color name="couleurBlanc">#ffff</color>
 </resources>

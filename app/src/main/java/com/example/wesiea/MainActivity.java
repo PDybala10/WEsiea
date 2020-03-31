@@ -5,6 +5,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.Menu;
+import android.view.View;
+import android.widget.Toast;
 
 import com.example.wesiea.ui.logi.LoginActivity;
 import com.google.android.material.navigation.NavigationView;
@@ -23,7 +25,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private Intent login;
@@ -35,10 +37,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        final DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
-        //
-        navigationView.setNavigationItemSelectedListener(this);
 
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -51,6 +51,33 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationUI.setupWithNavController(navigationView, navController);
 
         login = new Intent(MainActivity.this, LoginActivity.class);
+        //
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.nav_create_cv :
+                        Toast.makeText(getApplicationContext(), "Igor NDE",Toast.LENGTH_LONG).show();
+                        break;
+                    case R.id.nav_contact_us :
+                        Toast.makeText(getApplicationContext(), "Igor NDE",Toast.LENGTH_LONG).show();
+                        break;
+                    case R.id.nav_log_in :
+                        startActivity(login);
+                        // this.finish();
+                        break;
+                    case R.id.nav_sign_in :
+                        Toast.makeText(getApplicationContext(), "Igor NDE",Toast.LENGTH_LONG).show();
+                        break;
+                    case R.id.nav_share_app:
+                        Toast.makeText(getApplicationContext(), "Igor NDE",Toast.LENGTH_LONG).show();
+                        break;
+                }
+                drawer.closeDrawers();
+                return false;
+            }
+        });
+
     }
 
     @Override
@@ -69,26 +96,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.nav_create_cv :
 
-                break;
-            case R.id.nav_contact_us :
-
-                break;
-            case R.id.nav_log_in :
-                startActivity(login);
-                this.finish();
-                break;
-            case R.id.nav_sign_in :
-
-                break;
-            case R.id.nav_share_app:
-
-                break;
-        }
-        return true;
-    }
 }
