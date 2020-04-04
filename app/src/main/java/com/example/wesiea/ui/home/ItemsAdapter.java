@@ -1,5 +1,6 @@
 package com.example.wesiea.ui.home;
 
+import android.content.Intent;
 import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,17 +11,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.wesiea.R;
-
 import java.util.ArrayList;
 import java.util.Random;
-
 public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHolder> {
     private ArrayList<ItemsGenerate> mItemList;
     LinearLayout layoutCard;
     int couleur;
+    Intent details;
 
     public static class ItemViewHolder extends RecyclerView.ViewHolder{
         public TextView ville;
@@ -45,7 +46,16 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHold
     public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         //layoutCard.findViewById(R.id.layoutCard);
         //layoutCard.setBackground(layoutCard.getResources().getDrawable(R.drawable.card_shape));
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recycleview, parent, false);
+        final View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recycleview, parent, false);
+
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+
+            public void onClick(View v) {
+               // final View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recycleview, parent, false);
+
+            }
+        });
 
         couleur++;
         switch (couleur%4) {

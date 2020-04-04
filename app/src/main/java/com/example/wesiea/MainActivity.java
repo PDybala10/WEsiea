@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-        login = new Intent(MainActivity.this, LoginActivity.class);
+        login = new Intent(MainActivity.this, DetailsActivity.class);
         //
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
